@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #000;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+/* 3D Canvas Background */
+#canvas-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Glassmorphism Panels */
+.glass-panel {
+    background: rgba(25, 25, 25, 0.4);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-panel:hover {
+    background: rgba(35, 35, 35, 0.6);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.05);
+}
+
+/* Animations */
+.fade-in {
+    animation: fadeIn 1s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Font Effects */
+.text-shimmer {
+    background-image: linear-gradient(to right, #ffffff 20%, #71717a 40%, #71717a 60%, #ffffff 80%);
+    background-size: 200% auto;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: shimmer 5s linear infinite;
+    text-shadow: 0 0 30px rgba(255,255,255,0.1);
+}
+
+@keyframes shimmer {
+    to { background-position: 200% center; }
+}
+
+/* Colorful Theme Overrides */
+body.theme-colorful {
+    background-color: #070714;
+}
+body.theme-colorful .text-shimmer {
+    background-image: linear-gradient(to right, #3b82f6 20%, #8b5cf6 40%, #ec4899 60%, #3b82f6 80%);
+    background-size: 200% auto;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    text-shadow: 0 0 30px rgba(139, 92, 246, 0.4);
+}
+body.theme-colorful .glass-panel {
+    background: rgba(15, 15, 30, 0.4);
+    border-color: rgba(139, 92, 246, 0.15);
+}
+body.theme-colorful .glass-panel:hover {
+    background: rgba(20, 20, 40, 0.6);
+    border-color: rgba(139, 92, 246, 0.4);
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.15);
+}
+body.theme-colorful .bg-white\/5 {
+    background-color: rgba(139, 92, 246, 0.1);
+    border-color: rgba(139, 92, 246, 0.2);
+}
+body.theme-colorful .text-zinc-500, body.theme-colorful .text-zinc-400 {
+    color: #a78bfa;
+}
+body.theme-colorful .text-zinc-600 {
+    color: #8b5cf6;
+}
+body.theme-colorful .group-hover\:text-zinc-300:hover, 
+body.theme-colorful .group-hover\/edu\:text-zinc-300:hover {
+    color: #d8b4fe !important;
+}
